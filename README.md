@@ -1,13 +1,12 @@
-# Rendu
+# Commande démarer un nv projet
 
-Je vais noter votre investissement durant nos séances et vous envoyer des retours si je vois des choses qu'on a loupé ensemble.  
-Chacun doit avoir une PR sous la forme "Prénom Nom" sur une branche prénom.nom avec tout votre travail à l'intérieur.  
-  
-Voir la PR d'exemple :  
-https://github.com/ValentinMontagne/courses-web-services-rendu/pull/1  
+npm init 
 
-## Notation
-8 points sur les TPs.  
-12 points sur les exercices.  
-+2 point par exercice bonus réalisé.  
-Total sur 20 (Max 20)
+# Relancer un nouveau docker 
+
+# Remove postgres container.
+docker container rm postgres -f
+
+docker run --name postgres -p 5432:5432 \
+	-e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=mydb \
+	-v ./init.sql:/docker-entrypoint-initdb.d/init.sql -d postgres
