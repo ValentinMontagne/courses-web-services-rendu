@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "postgres": "^3.4.4",
+    "soap": "^1.0.0"
+  }
+}
