@@ -1,0 +1,24 @@
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  about VARCHAR(500),
+  price VARCHAR(500)
+);
+
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(500),
+  password VARCHAR(500)
+);
+ 
+CREATE TABLE panier (
+  id SERIAL PRIMARY KEY,
+  userId INTEGER REFERENCES users(id),
+  productId INTEGER REFERENCES products(id),
+  total NUMERIC,
+  payment BOOLEAN DEFAULT false,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
