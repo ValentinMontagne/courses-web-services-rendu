@@ -1,0 +1,18 @@
+{
+  "name": "rest-postgres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "simon-ravaut",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "postgres": "^3.4.4",
+    "zod": "^3.22.4"
+  }
+}
