@@ -1,0 +1,22 @@
+{
+  "name": "soap",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "test"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "julien",
+  "license": "ISC",
+  "dependencies": {
+    "postgres": "^3.4.4",
+    "soap": "^1.0.0"
+  }
+}

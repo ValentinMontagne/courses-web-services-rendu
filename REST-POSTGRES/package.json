@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api",
+  "main": "index.js",
+  "scripts": {
+    "test": "api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "api"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "julien",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "postgres": "^3.4.4",
+    "zod": "^3.22.4"
+  }
+}
