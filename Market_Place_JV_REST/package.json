@@ -1,0 +1,17 @@
+{
+  "name": "marketplace_jeuxvideo_rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@feathersjs/feathers": "^5.0.24",
+    "express": "^4.19.2",
+    "postgres": "^3.4.4",
+    "zod": "^3.22.4"
+  }
+}
