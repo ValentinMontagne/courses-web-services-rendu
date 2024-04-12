@@ -1,0 +1,16 @@
+{
+  "name": "service-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ZoQsito",
+  "license": "ISC",
+  "dependencies": {
+    "postgre": "^0.1.8",
+    "postgres": "^3.4.4",
+    "soap": "^1.0.0"
+  }
+}
