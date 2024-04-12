@@ -9,16 +9,13 @@ let db;
 
 app.use(express.json());
 
-// Init mongodb client connection
 client.connect().then(() => {
-  // Select db to use in mongodb
   db = client.db("myDB");
   app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
   });
 });
 
-// Schemas for views, actions, and goals
 const LogSchema = z.object({
   source: z.string(),
   url: z.string(),
@@ -29,11 +26,9 @@ const LogSchema = z.object({
 
 const CreateLogSchema = LogSchema.omit({ createdAt: true });
 
-// Route to create a new log entry
 app.post("/views", async (req, res) => {
   const result = await CreateLogSchema.safeParse(req.body);
 
-  // If Zod parsed successfully the request body
   if (result.success) {
     const { source, url, visitor, meta } = result.data;
 
@@ -51,11 +46,10 @@ app.post("/views", async (req, res) => {
   }
 });
 
-// Route to create a new action entry
 app.post("/actions", async (req, res) => {
   const result = await CreateLogSchema.safeParse(req.body);
 
-  // If Zod parsed successfully the request body
+ 
   if (result.success) {
     const { source, url, action, visitor, meta } = result.data;
 
@@ -74,11 +68,9 @@ app.post("/actions", async (req, res) => {
   }
 });
 
-// Route to create a new goal entry
 app.post("/goals", async (req, res) => {
   const result = await CreateLogSchema.safeParse(req.body);
 
-  // If Zod parsed successfully the request body
   if (result.success) {
     const { source, url, goal, visitor, meta } = result.data;
 
@@ -97,7 +89,6 @@ app.post("/goals", async (req, res) => {
   }
 });
 
-// Route to fetch all logs
 app.get("/logs", async (req, res) => {
   try {
     const logs = await db.collection("views").find({}).toArray();
@@ -108,7 +99,6 @@ app.get("/logs", async (req, res) => {
   }
 });
 
-// Route to fetch a log by ID
 app.get("/logs/:id", async (req, res) => {
   const logId = req.params.id;
   try {
@@ -123,7 +113,6 @@ app.get("/logs/:id", async (req, res) => {
   }
 });
 
-// Route to update a log
 app.put("/logs/:id", async (req, res) => {
   const logId = req.params.id;
   const updates = req.body;
@@ -142,7 +131,6 @@ app.put("/logs/:id", async (req, res) => {
   }
 });
 
-// Route to delete a log
 app.delete("/logs/:id", async (req, res) => {
   const logId = req.params.id;
   try {

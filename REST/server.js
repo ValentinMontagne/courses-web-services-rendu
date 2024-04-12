@@ -14,7 +14,6 @@ const sql = postgres({
 
 app.use(express.json());
 
-// Schemas
 const ProductSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -35,7 +34,6 @@ const CreateProductSchema = ProductSchema.omit({ id: true });
 app.post("/products", async (req, res) => {
   const result = await CreateProductSchema.safeParse(req.body);
 
-  // If Zod parsed successfully the request body
   if (result.success) {
     const { name, about, price } = result.data;
 
@@ -55,12 +53,10 @@ app.get("/products", async (req, res) => {
   try {
     let query = sql`SELECT * FROM products`;
 
-    // Filtrage par titre
     if (req.query.title) {
       query = sql`${query} WHERE name ILIKE '%' || ${req.query.title} || '%'`;
     }
 
-    // Filtrage par description
     if (req.query.about) {
       if (req.query.title) {
         query = sql`${query} AND about ILIKE '%' || ${req.query.about} || '%'`;
@@ -69,7 +65,6 @@ app.get("/products", async (req, res) => {
       }
     }
 
-    // Filtrage par prix
     if (req.query.price) {
       if (req.query.title || req.query.about) {
         query = sql`${query} AND price <= ${parseFloat(req.query.price)}`;
@@ -182,7 +177,6 @@ app.put("/users/:id", async (req, res) => {
   }
 });
 
-// Mettre Ã  jour partiellement un utilisateur par son ID (PATCH)
 app.patch("/users/:id", async (req, res) => {
   try {
     const { username, email, password } = req.body;

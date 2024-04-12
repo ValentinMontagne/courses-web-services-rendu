@@ -9,18 +9,13 @@ let db;
 
 app.use(express.json());
 
-// Product Schema + Product Route here.
-
-// Init mongodb client connection
 client.connect().then(() => {
-  // Select db to use in mongodb
   db = client.db("myDB");
   app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
   });
 });
 
-  // Schemas
 const ProductSchema = z.object({
     _id: z.string(),
     name: z.string(),
@@ -38,7 +33,6 @@ const ProductSchema = z.object({
   app.post("/categories", async (req, res) => {
     const result = await CreateCategorySchema.safeParse(req.body);
   
-    // If Zod parsed successfully the request body
     if (result.success) {
       const { name } = result.data;
   
@@ -53,7 +47,6 @@ const ProductSchema = z.object({
   app.post("/products", async (req, res) => {
     const result = await CreateProductSchema.safeParse(req.body);
   
-    // If Zod parsed successfully the request body
     if (result.success) {
       const { name, about, price, categoryIds } = result.data;
       const categoryObjectIds = categoryIds.map((id) => new ObjectId(id));
@@ -118,7 +111,6 @@ const ProductSchema = z.object({
     }
   });
   
-  // Route pour mettre à jour un produit
   app.put("/products/:id", async (req, res) => {
     const productId = req.params.id;
     const updates = req.body;
@@ -137,7 +129,6 @@ const ProductSchema = z.object({
     }
   });
   
-  // Route pour supprimer un produit
   app.delete("/products/:id", async (req, res) => {
     const productId = req.params.id;
     try {
@@ -152,7 +143,6 @@ const ProductSchema = z.object({
     }
   });
   
-  // Route pour mettre à jour une catégorie
   app.put("/categories/:id", async (req, res) => {
     const categoryId = req.params.id;
     const updates = req.body;
@@ -171,7 +161,6 @@ const ProductSchema = z.object({
     }
   });
   
-  // Route pour supprimer une catégorie
   app.delete("/categories/:id", async (req, res) => {
     const categoryId = req.params.id;
     try {
