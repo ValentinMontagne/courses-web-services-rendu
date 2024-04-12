@@ -1,0 +1,17 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "rest api tp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin PAVY",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0",
+    "postgres": "^3.4.3",
+    "zod": "^3.22.4"
+  }
+}
