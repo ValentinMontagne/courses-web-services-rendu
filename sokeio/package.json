@@ -1,0 +1,14 @@
+{
+  "name": "sokeio",
+  "version": "1.0.0",
+  "description": "test de la techno",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"s && exit 1"
+  },
+  "author": "Eric Gansa Diambote",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

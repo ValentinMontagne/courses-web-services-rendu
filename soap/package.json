@@ -1,0 +1,19 @@
+{
+  "name": "soap",
+  "version": "1.0.0",
+  "description": "soap project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "soapExo"
+  },
+  "author": "eric Gansa Diambote",
+  "license": "ISC",
+  "dependencies": {
+    "postgres": "^3.4.3",
+    "soap": "^1.0.0"
+  }
+}
